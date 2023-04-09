@@ -1,14 +1,7 @@
 import { BinnacleModel } from "../../../Domain/Model/Binnacle/BinnacleModel";
-import { binnacleService } from "../../../Infrastructure/Services/Binnacle/BinnacleService"
+import BinnacleService from "../../../Infrastructure/Services/Binnacle/BinnacleService";
 
-// const BinnacleListUserCases = async() =>{
-//     const respo = binnacleService.Get();
-//     return respo;
-// }
-
-export async function BinnacleListUserCases() {
-    const resp = await binnacleService.Get();
+export async function BinnacleListUserCases(): Promise<BinnacleModel>  {
+    const resp = await new BinnacleService().Get();
     return resp;
-  }
-
-//export default BinnacleListUserCases;
+}
