@@ -18,6 +18,17 @@ class BinnacleService {
         const resp = await APIService.get<BinnacleItem>(`${ endPoint }/${ id }`);
         return resp.data;
     };
+
+    async Save(name: string, description: string): Promise<BinnacleItem> {        
+        const resp = await APIService.post<BinnacleItem>(endPoint, {
+            data: {
+                name,
+                description: description
+            }
+        });
+             
+        return resp.data;
+    }
 }
 
 export default BinnacleService;

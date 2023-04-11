@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Binnacle, {loader as appLoader} from './Presentation/pages/Binnacles'
 import './Presentation/styles/index.css'
+import CreateBinnacle from './Presentation/pages/CreateBinnacle';
 
 const router = createBrowserRouter(
   [
@@ -14,6 +15,10 @@ const router = createBrowserRouter(
       children:[
 
       ]
+    },
+    {
+      path: '/CreateBinnacle',
+      element: <CreateBinnacle />
     }
   ]);
 

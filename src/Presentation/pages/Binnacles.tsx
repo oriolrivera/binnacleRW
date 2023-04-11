@@ -1,10 +1,10 @@
-import { useLoaderData, useNavigate } from 'react-router-dom';
-import { FaCheck, FaTrash } from "react-icons/fa";
-import { BinnacleListUserCases } from "../../application/useCases/Binnacle/BinnacleListUseCases";
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { FaCheck, FaTrash, FaPlus } from "react-icons/fa";
+import  BinnacleListUserCases  from "../../application/useCases/Binnacle/BinnacleListUseCases";
 import { BinnacleItem } from "../../Domain/Model/Binnacle/BinnacleModel";
 
 export async function loader(): Promise<BinnacleItem[]> {
-    const results = await BinnacleListUserCases();
+    const results = await new BinnacleListUserCases().Get();
     const data = results?.data;
     return data;
 }
@@ -20,8 +20,7 @@ function Binnacles() {
                         <div className="d-flex justify-content-between align-items-center">
                             <span className="font-weight-bold">Binnacle</span>
                             <div className="d-flex flex-row">
-                                <button className="btn btn-primary mr-2 active">Active</button>
-                                <button className="btn btn-primary new"><i className="fa fa-plus"></i> New</button>
+                                <Link className="btn btn-primary new" to="/CreateBinnacle"> <FaPlus /> New</Link>
                             </div>
                         </div>
 
